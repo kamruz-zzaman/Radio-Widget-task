@@ -18,6 +18,8 @@ background: #21212b;
 }
 .icon{
     cursor: pointer;
+    margin-left: 12px;
+    margin-top: 5px;
 }
 .title{
     font-weight: bold;
@@ -41,6 +43,13 @@ background: #21212b;
 .stations:hover{
     background: #22222b;
 }
+.stations_height{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+.stations_height::-webkit-scrollbar {
+    display: none;
+}
 .bottom_station{
     height: 60px;
     border-top: 1px solid #a2abbd;
@@ -53,7 +62,7 @@ background: #21212b;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    padding-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -68,4 +77,17 @@ background: #21212b;
 .plus_minus_icon{
     width: 80%;
     cursor: pointer;
+    margin-left: 5px;
+}
+.current_plying{
+    text-align: center;
+}
+.current_plying p{
+    line-height: 5px;
+}
+.current_title{
+    color: #edad60;
+}
+.current_station{
+    color: #a2abbd;
 }

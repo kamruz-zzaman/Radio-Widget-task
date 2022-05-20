@@ -5,6 +5,8 @@ import Styles from './stationStyle.module.css'
 import Active_station from '../assets/active_station.png'
 import Plus_Icon from '../assets/plus.png'
 import MinusIcon from '../assets/minus.png'
+
+// make station list array
 const station: { id: number, station_name: string, freq: string }[] = [
     {
         id: 1,
@@ -33,15 +35,17 @@ const station: { id: number, station_name: string, freq: string }[] = [
     }
 ]
 const RadioStation = () => {
+    // set clickData on state
     const [clickData, setClickData] = useState({
         id: 0,
         station_name: "",
         freq: ""
     })
+
+    // handle onclick station
     const handleStation = (id: number) => {
         setClickData(station[id - 1])
     }
-    console.log(clickData.id);
 
     return (
         <section>
@@ -58,37 +62,47 @@ const RadioStation = () => {
                     </div>
                 </div>
                 <div className={Styles.station_Container}>
-                    {
-                        station.map((data) => (
-                            <div key={data.id}>
-                                {
-                                    data.id === clickData.id &&
-                                    <div className={Styles.active_container}>
-                                        <div>
-                                            <img className={Styles.plus_minus_icon} src={Plus_Icon} alt="" />
+                    <div className={Styles.stations_height}>
+                        {
+                            station.map((data) => (
+                                <div key={data.id}>
+                                    {/* check if clickable data available then set active image and control */}
+                                    {
+                                        data.id === clickData.id &&
+                                        <div className={Styles.active_container}>
+                                            <div>
+                                                <img className={Styles.plus_minus_icon} src={Plus_Icon} alt="" />
+                                            </div>
+                                            <div>
+                                                <img className={Styles.active_station} src={Active_station} alt="" />
+                                            </div>
+                                            <div>
+                                                <img className={Styles.plus_minus_icon} src={MinusIcon} alt="" />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <img className={Styles.active_station} src={Active_station} alt="" />
-                                        </div>
-                                        <div>
-                                            <img className={Styles.plus_minus_icon} src={MinusIcon} alt="" />
-                                        </div>
+                                    }
+                                    {/* radio station list */}
+                                    <div onClick={() => handleStation(data.id)} className={Styles.stations}>
+                                        <p>{data.station_name}</p>
+                                        <p>{data.freq}</p>
                                     </div>
-                                }
-                                <div onClick={() => handleStation(data.id)} className={Styles.stations}>
-
-                                    <p>{data.station_name}</p>
-                                    <p>{data.freq}</p>
                                 </div>
-                            </div>
 
-                        ))
-                    }
+                            ))
+                        }
+                    </div>
+
                     <div className={Styles.bottom_station}>
-
+                        {/* check if clicked station then show title */}
+                        {
+                            clickData.id === 0 ? <></> :
+                                <div className={Styles.current_plying}>
+                                    <p className={Styles.current_title}>CURRENTLY PLAYING</p>
+                                    <p className={Styles.current_station}>{clickData.station_name}</p>
+                                </div>
+                        }
                     </div>
                 </div>
-
             </div>
 
         </section>
