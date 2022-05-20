@@ -1,0 +1,29 @@
+.container{
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #edad60;
+    padding: 0 10px;
+}
+.icon{
+    cursor: pointer;
+}
+.title{
+    font-weight: bold;
+    color: white;
+}
+.station_Container{
+    background: #2a2a35;
+}
+.stations{
+    display: flex;
+    justify-content: space-between;
+    color: #a2abbd;
+    border-bottom: 1px solid #a2abbd;
+    margin: 0px 10px;
+}
