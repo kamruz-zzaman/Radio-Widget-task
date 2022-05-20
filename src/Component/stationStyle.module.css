@@ -1,7 +1,11 @@
+body{
+background: #21212b;
+}
 .container{
     width: 20%;
     margin: 0 auto;
     margin-top: 20px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 .header{
     display: flex;
@@ -9,6 +13,8 @@
     align-items: center;
     background-color: #edad60;
     padding: 0 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 .icon{
     cursor: pointer;
@@ -19,6 +25,8 @@
 }
 .station_Container{
     background: #2a2a35;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .stations{
     display: flex;
@@ -26,4 +34,18 @@
     color: #a2abbd;
     border-bottom: 1px solid #a2abbd;
     margin: 0px 10px;
+    padding: 0px 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.stations:hover{
+    background: #22222b;
+}
+.bottom_station{
+    height: 60px;
+    border-top: 1px solid #a2abbd;
+    margin-top: -1px;
+    background: #22222b;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
