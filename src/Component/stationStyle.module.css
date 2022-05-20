@@ -49,3 +49,23 @@ background: #21212b;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
+.active_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.active_station{
+    width: 40%;
+    border: 1px solid #a2abbd;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.plus_minus_icon{
+    width: 80%;
+    cursor: pointer;
+}

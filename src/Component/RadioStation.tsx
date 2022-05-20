@@ -2,6 +2,9 @@ import { useState } from 'react';
 import BackArrow from '../assets/back-arrow.png'
 import SwitchIcon from '../assets/switch.png'
 import Styles from './stationStyle.module.css'
+import Active_station from '../assets/active_station.png'
+import Plus_Icon from '../assets/plus.png'
+import MinusIcon from '../assets/minus.png'
 const station: { id: number, station_name: string, freq: string }[] = [
     {
         id: 1,
@@ -30,11 +33,15 @@ const station: { id: number, station_name: string, freq: string }[] = [
     }
 ]
 const RadioStation = () => {
-    const [clickData, setClickData] = useState({})
+    const [clickData, setClickData] = useState({
+        id: 0,
+        station_name: "",
+        freq: ""
+    })
     const handleStation = (id: number) => {
         setClickData(station[id - 1])
     }
-    console.log(clickData);
+    console.log(clickData.id);
 
     return (
         <section>
@@ -53,10 +60,28 @@ const RadioStation = () => {
                 <div className={Styles.station_Container}>
                     {
                         station.map((data) => (
-                            <div key={data.id} onClick={() => handleStation(data.id)} className={Styles.stations}>
-                                <p>{data.station_name}</p>
-                                <p>{data.freq}</p>
+                            <div key={data.id}>
+                                {
+                                    data.id === clickData.id &&
+                                    <div className={Styles.active_container}>
+                                        <div>
+                                            <img className={Styles.plus_minus_icon} src={Plus_Icon} alt="" />
+                                        </div>
+                                        <div>
+                                            <img className={Styles.active_station} src={Active_station} alt="" />
+                                        </div>
+                                        <div>
+                                            <img className={Styles.plus_minus_icon} src={MinusIcon} alt="" />
+                                        </div>
+                                    </div>
+                                }
+                                <div onClick={() => handleStation(data.id)} className={Styles.stations}>
+
+                                    <p>{data.station_name}</p>
+                                    <p>{data.freq}</p>
+                                </div>
                             </div>
+
                         ))
                     }
                     <div className={Styles.bottom_station}>
